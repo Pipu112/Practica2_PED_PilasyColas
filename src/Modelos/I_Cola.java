@@ -1,6 +1,6 @@
 package Modelos;
 
-public interface Cola<E> {
+public interface I_Cola<E> {
     void encolar(E x);
     E desencolar();
     E primero();

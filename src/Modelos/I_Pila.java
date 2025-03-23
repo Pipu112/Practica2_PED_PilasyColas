@@ -1,6 +1,6 @@
 package Modelos;
 
-public interface Pila<E> {
+public interface I_Pila<E> {
     void apilar(E x);
     E desapilar();
     E tope();
