@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 public class MenuCola extends Menu{
-
+    public MenuCola(ClasePilaColaNum PilaCola) {
+        super(PilaCola);
+    }
     @Override
     public void mostrarOpcion() {
         System.out.println("2. Practicar con Colas");

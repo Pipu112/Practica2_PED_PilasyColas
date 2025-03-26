@@ -4,7 +4,10 @@ import EntradaSalida.MyInput;
 
 
 public abstract class Menu {
-
+    protected ClasePilaColaNum PilaCola;
+    public Menu(ClasePilaColaNum PilaCola) {
+        this.PilaCola = PilaCola;
+    }
 
     public void  ejecutar(){
         String respuesta="";

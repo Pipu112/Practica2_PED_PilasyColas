@@ -8,25 +8,9 @@ public class ClasePilaColaNum {
         pila = new Pila<Integer>();
         cola1 = new Cola<Integer>();
         cola2 = new Cola<Integer>();
-        //inicializamos pila
-        pila.lista.insertar(1);
-        pila.lista.insertar(2);
-        pila.lista.insertar(5);
-        pila.lista.insertar(3);
-        pila.lista.insertar(5);
-        //inicializamos cola 1
-        cola1.lista.insertar(5);
-        cola1.lista.insertar(13);
-        cola1.lista.insertar(5);
-        cola1.lista.insertar(21);
-        cola1.lista.insertar(30);
-        //inicializamos cola 2
-        cola2.lista.insertar(6);
-        cola2.lista.insertar(27);
-        cola2.lista.insertar(5);
-        cola2.lista.insertar(1);
-        cola2.lista.insertar(21);
-        cola2.lista.insertar(13);
+        restaurarPila();
+        restaurarCola1();
+        restaurarCola2();
     }
     public void mostrarPila() {
         System.out.println(pila.lista.toString());
@@ -36,5 +20,39 @@ public class ClasePilaColaNum {
     }
     public void mostrarCola2() {
         System.out.println(cola2.lista.toString());
+    }
+    public void restaurarPila(){
+        while(pila.estaVacia()){
+            pila.desapilar();
+        }
+        //inicializamos pila
+        pila.lista.insertar(1);
+        pila.lista.insertar(2);
+        pila.lista.insertar(5);
+        pila.lista.insertar(3);
+        pila.lista.insertar(5);
+    }
+    public void restaurarCola1() {
+        while(cola1.esVacia()){
+            cola1.desencolar();
+        }
+        //inicializamos cola 1
+        cola1.lista.insertar(5);
+        cola1.lista.insertar(13);
+        cola1.lista.insertar(5);
+        cola1.lista.insertar(21);
+        cola1.lista.insertar(30);
+    }
+    public void restaurarCola2() {
+        while(cola2.esVacia()){
+            cola2.desencolar();
+        }
+        //inicializamos cola 2
+        cola2.lista.insertar(6);
+        cola2.lista.insertar(27);
+        cola2.lista.insertar(5);
+        cola2.lista.insertar(1);
+        cola2.lista.insertar(21);
+        cola2.lista.insertar(13);
     }
 }

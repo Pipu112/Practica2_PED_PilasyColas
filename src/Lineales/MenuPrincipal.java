@@ -6,12 +6,19 @@ import java.util.ArrayList;
 
 public class MenuPrincipal extends Menu{
     private ArrayList<Menu> menus;
+    public MenuPrincipal(ClasePilaColaNum PilaCola) {
+        super(PilaCola);
+        menus = new ArrayList<Menu>();
+    }
     @Override
     public void mostrarOpcion() {
         System.out.println("");
         System.out.println("Menú Principal.");
         System.out.println("Seleccione una opción:");
         System.out.println("0. Guardar y salir del programa ");
+    }
+    public void agregarMenu(Menu m){
+        menus.add(m);
     }
 
     public void mostrarOpciones(){
