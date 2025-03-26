@@ -1,5 +1,10 @@
 package Lineales;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
 public class MenuCola extends Menu{
 
     @Override
@@ -24,8 +29,20 @@ public class MenuCola extends Menu{
             case "0":
                 return "n";
             case "1":
+                cargarCola("cola.dat");
                 return "s";
         }
         return "";
+    }
+    public static Cola<?> cargarCola(String nombreArchivo){
+    try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(nombreArchivo))) {
+            return (Cola<?>) in.readObject(); // Cargar el objeto
+        } catch (FileNotFoundException e) {
+        throw new RuntimeException(e);
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    } catch (ClassNotFoundException e) {
+        throw new RuntimeException(e);
+    }
     }
 }

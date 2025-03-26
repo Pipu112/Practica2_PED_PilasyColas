@@ -6,9 +6,19 @@ public class LEGConUltimo<E> extends LEG<E>{
         primero = null;
         ultimo = null;
     }
+
     public void insertar(E x) {
         primero = new NodoLEG(new NodoLEG(x),primero);
         if(ultimo == null){ultimo=primero;}
+    }
+
+    public void eliminarPrimero() {
+        if (primero != null) {
+            primero = primero.siguiente;
+            if (primero == null) {
+                ultimo = null;
+            }
+        }
     }
 
     public boolean eliminarlo(E x) {
