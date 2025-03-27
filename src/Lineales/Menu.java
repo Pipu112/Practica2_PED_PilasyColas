@@ -4,6 +4,8 @@ import EntradaSalida.MyInput;
 
 
 public abstract class Menu {
+    protected ClasePilaColaNum a;
+    public Menu(ClasePilaColaNum a) {this.a =  a;}
 
 
     public void  ejecutar(){

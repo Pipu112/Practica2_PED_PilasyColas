@@ -1,7 +1,8 @@
 package Lineales;
 
+import Lineales.ClasePilaColaNum;
 public class MenuPila extends Menu{
-
+    public MenuPila(ClasePilaColaNum a) {super(a);}
     @Override
     public void mostrarOpcion() {
         System.out.println("1. Practicar con Pilas");
@@ -24,6 +25,7 @@ public class MenuPila extends Menu{
             case "0":
                 return "n";
             case "1":
+                a.regenerarPila();
                 return "s";
         }
         return "";

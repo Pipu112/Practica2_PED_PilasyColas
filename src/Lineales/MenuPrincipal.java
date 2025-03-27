@@ -6,6 +6,12 @@ import java.util.ArrayList;
 
 public class MenuPrincipal extends Menu{
     private ArrayList<Menu> menus;
+
+    public MenuPrincipal(ClasePilaColaNum a) {
+        super(a);
+        menus = new ArrayList<Menu>();
+    }
+    public void agregarMenu( Menu m){menus.add(m);}
     @Override
     public void mostrarOpcion() {
         System.out.println("");
