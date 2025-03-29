@@ -15,15 +15,40 @@ public class Pila<E> implements I_Pila<E> {
 
     @Override
     public E desapilar() {
-        NodoLEG<E> aux = lista.primero;
-        lista.eliminar((E) aux);
-        return aux.dato;
+        if (estaVacia()) {
+            throw new IllegalStateException("La pila está vacía");
+        }
+        E dato = lista.primero.dato; // Guardamos el dato del nodo a eliminar
+        lista.eliminar(dato); // Eliminamos usando el dato, no el nodo
+        return dato;
     }
 
     @Override
     public boolean estaVacia() {
-        if(lista == null){return true;}
-        else{return false;}
+        return lista.primero == null;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[");
+        Pila<E> aux = new Pila<>();
+
+        // Copiamos la pila original a aux para invertir el orden
+        NodoLEG<E> current = lista.primero;
+        while (current != null) {
+            aux.apilar(current.dato);
+            current = current.siguiente;
+        }
+
+        // Extraemos de aux para mantener el orden LIFO en la impresión
+        while (!aux.estaVacia()) {
+            sb.append(aux.desapilar());
+            if (!aux.estaVacia()) {
+                sb.append(", ");
+            }
+        }
+
+        sb.append("]");
+        return sb.toString();
+    }
 }
