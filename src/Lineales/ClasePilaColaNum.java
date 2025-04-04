@@ -1,7 +1,7 @@
 package Lineales;
 
 public class ClasePilaColaNum {
-    protected Pila<Integer> pila;
+    public Pila<Integer> pila;
     protected Cola<Integer> cola1;
     protected Cola<Integer> cola2;
     public ClasePilaColaNum() {
@@ -22,7 +22,7 @@ public class ClasePilaColaNum {
         System.out.println(cola2.lista.toString());
     }
     public void restaurarPila(){
-        while(pila.estaVacia()){
+        while(!pila.estaVacia()){
             pila.desapilar();
         }
         //inicializamos pila
@@ -33,7 +33,7 @@ public class ClasePilaColaNum {
         pila.lista.insertar(5);
     }
     public void restaurarCola1() {
-        while(cola1.esVacia()){
+        while(!cola1.esVacia()){
             cola1.desencolar();
         }
         //inicializamos cola 1
@@ -44,7 +44,7 @@ public class ClasePilaColaNum {
         cola1.lista.insertar(30);
     }
     public void restaurarCola2() {
-        while(cola2.esVacia()){
+        while(!cola2.esVacia()){
             cola2.desencolar();
         }
         //inicializamos cola 2

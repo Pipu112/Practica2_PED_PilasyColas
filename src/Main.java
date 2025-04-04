@@ -1,4 +1,5 @@
 import Lineales.ClasePilaColaNum;
+import Lineales.MenuCola;
 import Lineales.MenuPila;
 import Lineales.MenuPrincipal;
 
@@ -11,5 +12,6 @@ public class Main {
         MenuPrincipal menu = new MenuPrincipal(a);
         menu.agregarMenu(new MenuPila(a));
         menu.agregarMenu(new MenuCola(a));
+        menu.ejecutar();
     }
 }

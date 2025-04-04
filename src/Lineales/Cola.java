@@ -21,6 +21,9 @@ public class Cola<E> implements Modelos.I_Cola<E> {
 
     @Override
     public E desencolar() {
+       if(lista.primero == null){
+           return null;
+       }
         E dato = lista.primero.dato; // Obtener el primer elemento
         lista.eliminarPrimero();     // Eliminar el primer nodo de la lista
         return dato;
@@ -40,10 +43,18 @@ public class Cola<E> implements Modelos.I_Cola<E> {
        }
        else{return false;}
     }
-    public void guardarCola(String nombreArchivo) throws IOException {
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(nombreArchivo))) {
-            out.writeObject(this); // Guardamos el objeto actual
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[");
+        NodoLEG<E> current = lista.primero;
+        while (current != null) {
+            sb.append(current.dato);
+            if (current.siguiente != null) {
+                sb.append(", ");
+            }
+            current = current.siguiente;
         }
+        sb.append("]");
+        return sb.toString();
     }
-
 }
