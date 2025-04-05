@@ -6,6 +6,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.HashSet;
+import java.util.Set;
+
+import static java.lang.Math.abs;
+import static java.lang.Math.ulp;
 
 public class MenuCola extends Menu{
     public MenuCola(ClasePilaColaNum PilaCola) {
@@ -41,23 +46,26 @@ public class MenuCola extends Menu{
                 return "s";
             case "2":
                 System.out.println("La cola 1 sin elementos repetidos es: ");
-                System.out.println(eliminarElementosCola_Recursivo());
+                eliminarElementosCola_Recursivo(0);
                 System.out.println(PilaCola.cola1.toString());
-
                 return "s";
             case "3":
                 rotacionCircular();
+                System.out.println("La cola ha quedado: ");
+                System.out.println(PilaCola.cola1.toString());
+                return "s";
+            case "4":
+                InterseccionColas();
                 return "s";
             default:
                 System.out.println("Opcion invalida");
         }
         return "";
     }
-    public int eliminarElementosCola_Recursivo(){
-        int nelem = 0;
+    public int eliminarElementosCola_Recursivo(int nelem){
         if(!PilaCola.cola1.esVacia()){
             int dato = PilaCola.cola1.desencolar();
-            nelem = eliminarElementosCola_Recursivo() + 1;
+            nelem = eliminarElementosCola_Recursivo(nelem+1);
             if(dato != nelem){
                 PilaCola.cola1.encolar(dato);
             }
@@ -65,24 +73,28 @@ public class MenuCola extends Menu{
         return nelem;
     }
     public void rotacionCircular(){
-        Cola<Integer> colaAux = new Cola<Integer>();
-        int i=0;
-        boolean fin = false;
         System.out.println("La cola 1: ");
-        System.out.println(PilaCola.cola1.toString());
+        System.out.println(PilaCola.cola1.lista.toString());
+
         System.out.println("¿Cuántas rotaciones desea realizar?");
         int rot = MyInput.readInt();
-        System.out.println(PilaCola.cola1.primero);
-        PilaCola.cola1.encolar(null);
-        while(!fin){
-            Integer aux = PilaCola.cola1.desencolar();
-            colaAux.encolar(aux);
-            i++;
-            if(aux == null){fin = true;}
-        }
-        for(int j=0; j<=i-rot;j++){
-            PilaCola.cola1.encolar(PilaCola.cola1.desencolar());
+
+        for(int j=0; j<rot;j++){
+            Integer elemento = PilaCola.cola1.desencolar();
+            PilaCola.cola1.encolar(elemento);
         }
     }
-
+    public void InterseccionColas(){
+        Set<Integer> conjuntoCola1 = new HashSet<>();
+        Set<Integer> conjuntoCola2 = new HashSet<>();
+        while(!PilaCola.cola1.esVacia()){
+            conjuntoCola1.add(PilaCola.cola1.desencolar());
+        }
+        while(!PilaCola.cola2.esVacia()){
+            conjuntoCola2.add(PilaCola.cola2.desencolar());
+        }
+        conjuntoCola1.retainAll(conjuntoCola2);
+        System.out.println("Cola resultante de la intersección: ");
+        System.out.println(conjuntoCola1);
+    }
 }

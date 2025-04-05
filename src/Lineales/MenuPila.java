@@ -135,14 +135,14 @@ public class MenuPila extends Menu{
         while(!pilaAux.estaVacia()){
             dato2 = pilaAux.desapilar();
 
-            if(dato1+1 == dato2){
+            if(dato1 == dato2+1){
                 if(pilaSecuencia.estaVacia()){
                     pilaSecuencia.apilar(dato1);
                 }
                 pilaSecuencia.apilar(dato2);
-                System.out.println(pilaSecuencia.toString());
             }
             else{
+                System.out.println("hihijuajua");
                 if(!pilaSecuencia.estaVacia()){
                     System.out.println(pilaSecuencia.toString());
 
@@ -152,6 +152,9 @@ public class MenuPila extends Menu{
                 }
             }
             dato1 = dato2;
+        }
+        if(!pilaSecuencia.estaVacia()){
+            System.out.println(pilaSecuencia.toString());
         }
     }
 }

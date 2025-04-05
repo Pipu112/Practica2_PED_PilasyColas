@@ -4,19 +4,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-public class Cola<E> implements Modelos.I_Cola<E> {
+public class Cola<E extends Integer> implements Modelos.I_Cola<E> {
 
     protected LEGConUltimo<E> lista;
-    protected int fin, primero;
     protected static final int CAPACIDAD_POR_DEFECTO = 200;
    public Cola() {
        lista = new LEGConUltimo<>();
-       primero=0;
-       fin=0;
    }
     @Override
     public void encolar(E x) {
-        lista.insertar(x);
+        lista.insertarEnFin(x);
     }
 
     @Override
@@ -31,7 +28,7 @@ public class Cola<E> implements Modelos.I_Cola<E> {
 
     @Override
     public E primero() {
-        return lista.primero.dato;
+        return lista.primero != null ? lista.primero.dato : null;
     }
 
 

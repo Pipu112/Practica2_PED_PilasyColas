@@ -37,22 +37,22 @@ public class ClasePilaColaNum {
             cola1.desencolar();
         }
         //inicializamos cola 1
-        cola1.lista.insertar(5);
-        cola1.lista.insertar(13);
-        cola1.lista.insertar(5);
-        cola1.lista.insertar(21);
-        cola1.lista.insertar(30);
+        cola1.encolar(5);
+        cola1.encolar(13);
+        cola1.encolar(5);
+        cola1.encolar(21);
+        cola1.encolar(30);
     }
     public void restaurarCola2() {
         while(!cola2.esVacia()){
             cola2.desencolar();
         }
         //inicializamos cola 2
-        cola2.lista.insertar(6);
-        cola2.lista.insertar(27);
-        cola2.lista.insertar(5);
-        cola2.lista.insertar(1);
-        cola2.lista.insertar(21);
-        cola2.lista.insertar(13);
+        cola2.encolar(6);
+        cola2.encolar(27);
+        cola2.encolar(5);
+        cola2.encolar(1);
+        cola2.encolar(21);
+        cola2.encolar(13);
     }
 }
